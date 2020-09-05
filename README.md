@@ -1,3 +1,8 @@
+# Shakespearemon: To Catch 'Em All Or Not To Catch 'Em All, That Is The Question
+
+Shakespearemon is the Pokédex with Shakespearean flavour, brought to you on a MERN stack.
+
+======
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
