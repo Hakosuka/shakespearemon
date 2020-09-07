@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+import axios from 'axios';
 
 export default class Home extends Component {
 	constructor(props){
@@ -37,7 +39,9 @@ export default class Home extends Component {
 							onChange={this.onChangePokemonName}/>
 					</div>
 					<div>
-						<input type="submit" value="GO!" className="btn btn-success"/>
+						<Link to={"/pokemon/"+this.state.entered_pokemon}>
+							<input type="submit" value="GO!" className="btn btn-success"/>
+						</Link>
 					</div>
 				</form>
             </div>
