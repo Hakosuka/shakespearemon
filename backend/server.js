@@ -26,6 +26,7 @@ pokeRoutes.route('/:name').get(function(req, res) {
 		if(!pokemon)
 			res.status(404).send(`Alas, poor Trainer, this Pokémon ${name} you did seek does not yet exist. Please try again.`);
 		else
+			console.log("Data to be sent at " + Date() + ": " + pokemon);
 			res.json(pokemon);
 	});
 });
