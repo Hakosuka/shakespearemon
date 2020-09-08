@@ -19,7 +19,7 @@
 .env.production.local
 
 # junk
-.txt
+/scripts/pokedex
 pokemon_file.json
 
 npm-debug.log*
