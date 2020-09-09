@@ -4,15 +4,18 @@ Shakespearemon is the Pokédex with Shakespearean flavour, brought to you on a M
 
 ======
 Setup on Windows:
-0. Download/install Node.js and MongoDB.
-  0. Go to the /backend/ directory and install Express.js, BodyParser, CORS, and Mongoose using 
+1. Download/install Node.js and MongoDB.
+  1. Add the location of your MongoDB installation to %PATH% in your environment variables in System Properties.
+  2. Go to the /backend/ directory and install Express.js, BodyParser, CORS, and Mongoose using 
   `npm install express body-parser cors mongoose` in the Command Terminal.
-  1. Install a global package using `npm install -g nodemon` in the Command Terminal.
-  2. Create a folder in the root C: directory called `data/db/` to house the JSON data.
-  2. Go to the directory of `mongod.exe` (which should usually be 
+  3. Install a global package using `npm install -g nodemon` in the Command Terminal.
+  4. Create a folder in the root C: directory called `data/db/` to house the JSON data.
+  5. Go to the directory of `mongod.exe` (which should usually be 
   `C:\Program Files\MongoDB\Server\4.4\bin`) and use the `mongod` command.
-1. Navigate to the root folder of the project and enter `npm start` in the terminal.
-2. Navigate to /backend/ and enter `nodemon server` to start up the Express server.
+2. Open another command terminal, navigate to the root folder of the project and enter `mongo`
+3. Copy the contents of /scripts/shakespearemon_mongo_commands.txt into the Mongo terminal.
+4. Navigate to /backend/ and enter `nodemon server` to start up the Express server.
+5. Start sending GET requests to `localhost:4000/pokemon/<pokemon-name>` and have fun!
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
