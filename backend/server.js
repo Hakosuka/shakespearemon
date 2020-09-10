@@ -22,8 +22,12 @@ connection.once('open', function(){
 //Create endpoints for each Pokédex entry using the corresponding Pokémon's name
 pokeRoutes.route('/:name').get(function(req, res) {
 	let name = req.params.name;
-	//Find the requested Pokemon's data in the database and then send it.
-	PokemonModel.find().byName(name).exec(function(err, pkmn_to_send) {
+	/** I'm using findOne() instead of find() because if the user enters part of a Pokemon name,
+	 *	they'll get every Pokemon with that part in its name, for example "jol" could mean either
+	 *  Jolteon or Joltik. The Pokemon with the lowest National Dex number will be sent to the user,
+	 * 	because that was how the database is sorted.
+	 */
+	PokemonModel.findOne().byName(name).exec(function(err, pkmn_to_send) {
 		console.log("Data to be sent at " + Date() + ": " + pkmn_to_send);
 		if(!pkmn_to_send)
 			res.status(404).send(`Alas, poor Trainer, this Pokémon ${name} you did seek does not yet exist. Please try again.`);
