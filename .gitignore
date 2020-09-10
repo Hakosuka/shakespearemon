@@ -26,3 +26,4 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 backend/server_with_creation_updating_actions.js
+scripts-and-tools

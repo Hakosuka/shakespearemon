@@ -7,7 +7,7 @@ const pokeRoutes = express.Router();
 const PORT = 4000;
 
 //Access all Pokemon documents through the Model
-let Pokemon = require('./pokemon.model');
+let PokemonModel = require('./pokemon.model');
 
 app.use(cors()); //enable Cross-Origin Resource Sharing
 app.use(bodyParser.json());
@@ -22,12 +22,14 @@ connection.once('open', function(){
 //Create endpoints for each Pokédex entry using the corresponding Pokémon's name
 pokeRoutes.route('/:name').get(function(req, res) {
 	let name = req.params.name;
-	Pokemon.find().byName(name).exec(function(err, pokemon) {
-		if(!pokemon)
+	//Find the requested Pokemon's data in the database and then send it.
+	PokemonModel.find().byName(name).exec(function(err, pkmn_to_send) {
+		console.log("res type: " + typeof res + ", pokemon object type: " + typeof pkmn_to_send);
+		console.log("Data to be sent at " + Date() + ": " + pkmn_to_send);
+		if(!pkmn_to_send)
 			res.status(404).send(`Alas, poor Trainer, this Pokémon ${name} you did seek does not yet exist. Please try again.`);
 		else
-			console.log("Data to be sent at " + Date() + ": " + pokemon);
-			res.json(pokemon);
+			res.json(pkmn_to_send);
 	});
 });
 app.use('/pokemon', pokeRoutes);
