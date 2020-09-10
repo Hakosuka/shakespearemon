@@ -8,11 +8,11 @@ shakespearedex_str = ""
 
 names_file = open("name_dump.txt", "r", encoding="utf-8")
 # The web-scraper has dumped its data in one long unbroken line.
-pkmn_names_array = names_file.read().split("::::")
+pkmn_names_array = names_file.read().split("::;::")
 for name in pkmn_names_array:
 	print("Name: " + name)
 shakespearedex_str = open("shakespearedump.txt", "r", encoding="utf-8")
-dex_entries_array = shakespearedex_str.read().split("::::")
+dex_entries_array = shakespearedex_str.read().split("::;::")
 for i in range(0, 893):
 	print(dex_entries_array[i])
 	shakespearedex_dict = {"name": pkmn_names_array[i],

@@ -48,8 +48,8 @@ for i in range(1, 894): # 894 instead of 893 because range() excludes the end nu
 			# we're going  to use what I assume is the oldest entry.
 			break
 	# I'm using this between each line in the string so that I know what to use in split() later.
-	name_str += pokemon_name + "::::"
-	poke_str += pokedex_text + "::::"
+	name_str += pokemon_name + "::;::"
+	poke_str += pokedex_text + "::;::"
 	# Create the JSON output
 	pokemon_dict = {"name": pokemon_name,
 		"description": pokedex_text}
